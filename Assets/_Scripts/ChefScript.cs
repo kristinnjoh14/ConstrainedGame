@@ -42,7 +42,20 @@ public class ChefScript : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D (Collision2D coll) {
-		Debug.Log (coll.otherCollider.name);
+		if (coll.gameObject.CompareTag ("Ingredient")) {
+			string ingredientType = findIngredientType (coll.gameObject.name);
+			Destroy (coll.gameObject);
+			addToStack (ingredientType);
+		}
+	}
+
+	string findIngredientType (string falling) {
+		//Debug.Log (falling.Substring(0, falling.Length - 14) + "Stacked");
+		return falling.Substring(0, falling.Length - 14) + "Stacked";
+	}
+
+	void addToStack (string ingredientType) {
+		//TODO: Implement or rethink
 	}
 }
 
