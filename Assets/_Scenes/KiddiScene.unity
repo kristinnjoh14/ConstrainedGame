@@ -728,7 +728,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.08, y: -4.44, z: -0.42286688}
   m_LocalScale: {x: 14, y: 3, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1594702484}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -764,6 +765,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chefSpeed: 20
+  ingredients:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  stack: {fileID: 1594702485}
 --- !u!61 &1407551197
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1008,6 +1017,53 @@ Transform:
   m_PrefabParentObject: {fileID: 4721614874795158, guid: f99729de7ef044396b09f6b804c9021e,
     type: 2}
   m_PrefabInternal: {fileID: 1588949553}
+--- !u!1 &1594702483
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1594702484}
+  - component: {fileID: 1594702485}
+  m_Layer: 0
+  m_Name: Stack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1594702484
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1594702483}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1407551194}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1594702485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1594702483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d7fdc88ea728452fa31835929b7e672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredients:
+  - {fileID: 4421231926889420, guid: e569382f119914be6b6e9b17daa3253f, type: 2}
+  - {fileID: 4917990752991348, guid: f5fa8ead057b84b1fb0743dc92dd1610, type: 2}
+  - {fileID: 4328995082042236, guid: 14f1ea0466a1d42b3b661637f9d3b116, type: 2}
+  - {fileID: 4431947143227706, guid: 07e655df29b0741b9916e4e510e2b716, type: 2}
+  - {fileID: 4534728308774776, guid: c45e2045e94d045c7842fa7fc3ecb0be, type: 2}
+  stack: []
 --- !u!1 &1641546929
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,7 +1104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44296599334d34f87a9ad984b25bc3aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 1.9
+  spawnRate: 0.9
   ingredients:
   - {fileID: 4307444208916538, guid: 917b051d5d5654c13bda17c0dba312c5, type: 2}
   - {fileID: 4721614874795158, guid: f99729de7ef044396b09f6b804c9021e, type: 2}

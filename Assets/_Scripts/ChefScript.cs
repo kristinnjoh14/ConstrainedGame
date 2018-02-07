@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ChefScript : MonoBehaviour {
 	public float chefSpeed;
+	public Transform[] ingredients = new Transform[6];
+	public Stack stack;
 	// Use this for initialization
 	void Start () {
 		
@@ -43,20 +45,36 @@ public class ChefScript : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D coll) {
 		if (coll.gameObject.CompareTag ("Ingredient")) {
-			string ingredientType = findIngredientType (coll.gameObject.name);
+			int ingredientType = findIngredientType (coll.gameObject.name);
 			Destroy (coll.gameObject);
-			addToStack (ingredientType);
+			stack.addToStack (ingredientType);
 		}
 	}
 
-	string findIngredientType (string falling) {
+	int findIngredientType (string falling) {
 		//Debug.Log (falling.Substring(0, falling.Length - 14) + "Stacked");
-		return falling.Substring(0, falling.Length - 14) + "Stacked";
+		string type = falling.Substring(0, falling.Length - 14);
+		switch (type) {
+		case "Bacon":
+			return 0;
+		case "Bread":
+			return 1;
+		case "Fried Egg":
+			return 2;
+		case "Lettuce":
+			return 3;
+		case "Tomato":
+			return 4;
+		default:
+			return -1;
+		}
 	}
 
-	void addToStack (string ingredientType) {
+	//void addToStack (string ingredientType) {
 		//TODO: Implement or rethink
-	}
+		//GameObject newbie = Instantiate (ingredients[x], new Vector2 ((Random.value*17.2f-8.6f), 5), Quaternion.identity);
+		//stack.Add (newbie);
+	//}
 }
 
 
