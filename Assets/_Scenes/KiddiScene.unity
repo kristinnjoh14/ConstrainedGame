@@ -1064,6 +1064,7 @@ MonoBehaviour:
   - {fileID: 4431947143227706, guid: 07e655df29b0741b9916e4e510e2b716, type: 2}
   - {fileID: 4534728308774776, guid: c45e2045e94d045c7842fa7fc3ecb0be, type: 2}
   stack: []
+  stackTop: {x: 0, y: 0}
 --- !u!1 &1641546929
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,21 +9,23 @@ public class Stack : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		stackTop = (Vector2) transform.position;
+		stackTop = GetComponentInParent<BoxCollider2D> ().transform.position;
+		stack.Add (Instantiate (ingredients[1], stackTop + new Vector2 (0, 0.2f), Quaternion.identity).gameObject);
+		stackTop = (Vector2) stack[0].transform.position;
 	}
 
 	// Update is called once per frame
 	void Update () {
 		if (stack.Count > 0) {
-			if (Mathf.Abs (GetComponentInParent<Rigidbody2D> ().position.x - stack [0].transform.position.x) > 0.2) {
-				Vector2 temp = new Vector2 ((GetComponentInParent<Rigidbody2D> ().position.x - stack [0].transform.position.x)*Time.deltaTime, stack [0].transform.position.y);
-				stack [0].transform.position = temp;
+			if (Mathf.Abs (GetComponentInParent<Rigidbody2D> ().transform.position.x - stack [0].transform.position.x) > 0.2) {
+				Vector3 temp = new Vector2 ((GetComponentInParent<BoxCollider2D> ().transform.position.x - stack [0].transform.position.x), 0);
+				stack [0].transform.position += temp;
 			}
-			int i = 0;
+			int i =0;
 			foreach (GameObject item in stack.GetRange(1, stack.Count-1)) {
 				if (Mathf.Abs (stack[i].transform.position.x - item.transform.position.x) > 0.2) {
-					Vector2 temp = new Vector2 ((stack[i].transform.position.x - item.transform.position.x)*Time.deltaTime, item.transform.position.y);
-					item.transform.position = temp;
+					Vector3 temp = new Vector2 ((stack[i].transform.position.x - item.transform.position.x), 0);
+					item.transform.position += temp;
 				}
 				i++;
 			}
@@ -31,8 +33,16 @@ public class Stack : MonoBehaviour {
 	}
 
 	public void addToStack (int type) {
-		Transform newbie = Instantiate (ingredients[type], stackTop + new Vector2(0.5f*Random.value-0.25f,0.15f), Quaternion.identity);
+		if (type == 1) {
+			foreach (GameObject item in stack) {
+				Destroy (item);
+			}
+			stack.Clear ();
+			stackTop = (Vector2) transform.position;
+		}
+		Transform newbie = Instantiate (ingredients[type], stackTop + new Vector2 (0,0.2f), Quaternion.identity);
 		stack.Add (newbie.gameObject);
 		stackTop = newbie.position;
+
 	}
 }
