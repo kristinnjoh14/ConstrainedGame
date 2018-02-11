@@ -7,11 +7,18 @@ public class Stack : MonoBehaviour {
 	public List<GameObject> stack = new List<GameObject> ();
 	public Vector2 stackTop;
 
+    //References
+    private ScoreManager myScoreManager;
+
 	// Use this for initialization
-	void Start () {
-		stackTop = GetComponentInParent<BoxCollider2D> ().transform.position;
+	void Start ()
+	{
+	    myScoreManager = GetComponentInParent<ScoreManager>();
+
+        stackTop = GetComponentInParent<BoxCollider2D> ().transform.position;
 		stack.Add (Instantiate (ingredients[1], stackTop + new Vector2 (0, 0.2f), Quaternion.identity).gameObject);
 		stackTop = (Vector2) stack[0].transform.position;
+
 	}
 
 	// Update is called once per frame
@@ -36,6 +43,7 @@ public class Stack : MonoBehaviour {
 		if (type == 1) {
 			foreach (GameObject item in stack) {
 				Destroy (item);
+                myScoreManager.addToScore(100);
 			}
 			stack.Clear ();
 			stackTop = (Vector2) transform.position;
@@ -43,6 +51,5 @@ public class Stack : MonoBehaviour {
 		Transform newbie = Instantiate (ingredients[type], stackTop + new Vector2 (0,0.2f), Quaternion.identity);
 		stack.Add (newbie.gameObject);
 		stackTop = newbie.position;
-
 	}
 }
