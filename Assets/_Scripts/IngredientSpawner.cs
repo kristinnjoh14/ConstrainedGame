@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IngredientSpawner : MonoBehaviour {
 	public float spawnRate;
-	public Transform[] ingredients = new Transform[6];
+	public Transform[] ingredients = new Transform[7];
 
 	private float spawnCountdown;
 	// Use this for initialization
@@ -17,8 +17,8 @@ public class IngredientSpawner : MonoBehaviour {
 		spawnCountdown -= Time.deltaTime;
 		if (spawnCountdown < 0) {
 			//Spawn random ingredient
-			int index = Random.Range (0, ingredients.Length);
-			Instantiate (ingredients[index], new Vector2 ((Random.value*17.2f-8.6f), 5), Quaternion.identity);
+			int index = Random.Range (0, ingredients.Length-1);
+			Instantiate (ingredients[index], new Vector2 ((Random.value*17.2f-8.6f), 4), Quaternion.identity);
 			
 			//Reset counter, += to include what little time was overkill for counter to reach 0
 			spawnCountdown += spawnRate;

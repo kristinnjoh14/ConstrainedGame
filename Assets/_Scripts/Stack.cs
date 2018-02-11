@@ -60,6 +60,16 @@ public class Stack : MonoBehaviour {
 		stack.Add (newbie.gameObject);
 		stackTop = newbie.position;
 		GetComponent<BoxCollider2D> ().transform.position = new Vector2 (GetComponent<BoxCollider2D> ().transform.position.x, stackTop.y);
+		if (type == 5) {
+			foreach (GameObject item in stack) {
+				Destroy (item);
+			}
+			stack.Clear ();
+			stackTop = (Vector2) transform.parent.position;
+			Transform botBread = Instantiate (ingredients[1], stackTop + new Vector2 (0,ingredientHeight), Quaternion.identity);
+			stack.Add (botBread.gameObject);
+			stackTop = botBread.position;
+		}
 	}
 
 	void OnCollisionEnter2D (Collision2D coll) {
