@@ -1079,6 +1079,7 @@ MonoBehaviour:
   - {fileID: 4534728308774776, guid: c45e2045e94d045c7842fa7fc3ecb0be, type: 2}
   stack: []
   stackTop: {x: 0, y: 0}
+  stackStiffness: 0.98
   ingredientHeight: 0.2
 --- !u!61 &1594702486
 BoxCollider2D:
