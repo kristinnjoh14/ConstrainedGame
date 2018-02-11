@@ -745,7 +745,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000000
   m_LinearDrag: 0.4
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -780,7 +780,7 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1407551192}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1152,7 +1152,6 @@ MonoBehaviour:
   - {fileID: 4525135869570148, guid: 0b85f1fe6bc824130b8ed9555844186a, type: 2}
   - {fileID: 4490170324628196, guid: f5846bfd9375949969a931ce0892d02e, type: 2}
   - {fileID: 4864610910341364, guid: 4c0b593c3a2954166bd46abe8ffd5283, type: 2}
-  - {fileID: 4721614874795158, guid: f99729de7ef044396b09f6b804c9021e, type: 2}
 --- !u!1 &1798775534
 GameObject:
   m_ObjectHideFlags: 0
