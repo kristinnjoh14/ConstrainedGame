@@ -43,15 +43,15 @@ public class ChefScript : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter2D (Collision2D coll) {
+	/*void OnCollisionEnter2D (Collision2D coll) {
 		if (coll.gameObject.CompareTag ("Ingredient")) {
 			int ingredientType = findIngredientType (coll.gameObject.name);
 			Destroy (coll.gameObject);
 			stack.addToStack (ingredientType);
 		}
-	}
+	}*/
 
-	int findIngredientType (string falling) {
+	public static int findIngredientType (string falling) {
 		//Debug.Log (falling.Substring(0, falling.Length - 14) + "Stacked");
 		string type = falling.Substring(0, falling.Length - 14);
 		switch (type) {

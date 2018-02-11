@@ -593,7 +593,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1133974838}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.7411468, y: -0.29496127, z: -0.52752537}
+  m_LocalPosition: {x: -0.7411468, y: -2.23, z: -0.52752537}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1401414628}
@@ -668,6 +668,7 @@ GameObject:
   - component: {fileID: 1407551195}
   - component: {fileID: 1407551196}
   - component: {fileID: 1407551197}
+  - component: {fileID: 1407551198}
   m_Layer: 0
   m_Name: ChefsPlate
   m_TagString: Untagged
@@ -779,7 +780,7 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1407551192}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -798,6 +799,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
+--- !u!114 &1407551198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1407551192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcdc3b5304cc9894c881268151cfdc7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
 --- !u!1001 &1431177569
 Prefab:
   m_ObjectHideFlags: 0
@@ -1026,6 +1039,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1594702484}
   - component: {fileID: 1594702485}
+  - component: {fileID: 1594702486}
   m_Layer: 0
   m_Name: Stack
   m_TagString: Untagged
@@ -1041,7 +1055,7 @@ Transform:
   m_GameObject: {fileID: 1594702483}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 14, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 1407551194}
   m_RootOrder: 0
@@ -1065,6 +1079,32 @@ MonoBehaviour:
   - {fileID: 4534728308774776, guid: c45e2045e94d045c7842fa7fc3ecb0be, type: 2}
   stack: []
   stackTop: {x: 0, y: 0}
+  ingredientHeight: 0.2
+--- !u!61 &1594702486
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1594702483}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.00010709185, y: -0.0005467506}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.010150513, y: 0.0495037}
+  m_EdgeRadius: 0
 --- !u!1 &1641546929
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,7 +1145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44296599334d34f87a9ad984b25bc3aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 0.9
+  spawnRate: 0.5
   ingredients:
   - {fileID: 4307444208916538, guid: 917b051d5d5654c13bda17c0dba312c5, type: 2}
   - {fileID: 4721614874795158, guid: f99729de7ef044396b09f6b804c9021e, type: 2}
