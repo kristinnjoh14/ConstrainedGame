@@ -6,6 +6,7 @@ public class Stack : MonoBehaviour {
 	public Transform[] ingredients;
 	public List<GameObject> stack = new List<GameObject> ();
 	public Vector2 stackTop;
+	public float stackStiffness;
 
 	public float ingredientHeight;
     //References
@@ -25,18 +26,24 @@ public class Stack : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (stack.Count > 0) {
-			if (Mathf.Abs (GetComponentInParent<Rigidbody2D> ().transform.position.x - stack [0].transform.position.x) > 0.2) {
-				Vector3 temp = Vector2.ClampMagnitude (new Vector2 ((GetComponentInParent<BoxCollider2D> ().transform.position.x - stack [0].transform.position.x), 0), 1000f);
-				stack [0].transform.position += temp;
+			//if (Mathf.Abs (GetComponentInParent<Rigidbody2D> ().transform.position.x - stack [0].transform.position.x) > 0.2) {
+			Vector2 chef = GetComponentInParent<Rigidbody2D> ().transform.position;
+			Debug.Log (chef);
+			Vector3 temp = stack [0].transform.position;
+			float x = Mathf.Lerp (temp.x, chef.x, stackStiffness);
+			Vector3 v = new Vector3 (x, temp.y);
+			stack [0].transform.position = v;
+			//}
+			for (int i = stack.Count - 1; i > 0; i--) {
+				//if (Mathf.Abs (stack[i].transform.position.x - item.transform.position.x) > 0.2) {
+				Vector2 tmp1 = stack[i].transform.position;
+				Vector3 temp1 = stack[i-1].transform.position;
+				float x1 = Mathf.Lerp (tmp1.x, temp1.x, stackStiffness);
+				Vector3 v2 = new Vector3 (x1, tmp1.y);
+				stack[i].transform.position = v2;
+				//}
 			}
-			int i = 0;
-			foreach (GameObject item in stack.GetRange(1, stack.Count-1)) {
-				if (Mathf.Abs (stack[i].transform.position.x - item.transform.position.x) > 0.2) {
-					Vector3 temp = Vector2.ClampMagnitude (new Vector2 ((stack[i].transform.position.x - item.transform.position.x), 0), 1000f);
-					item.transform.position += temp;
-				}
-				i++;
-			}
+			GetComponent<BoxCollider2D> ().transform.position = new Vector2 (stack[stack.Count-1].transform.position.x, stackTop.y);
 		}
 	}
 
