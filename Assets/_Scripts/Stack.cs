@@ -16,7 +16,7 @@ public class Stack : MonoBehaviour {
 	{
 	    myScoreManager = GetComponentInParent<ScoreManager>();
 
-		stackTop = GetComponent<BoxCollider2D> ().transform.position;
+		stackTop = GetComponent<BoxCollider2D>().transform.position;
 		stack.Add (Instantiate (ingredients[1], stackTop + new Vector2 (0, ingredientHeight), Quaternion.identity).gameObject);
 		stackTop = (Vector2) stack[0].transform.position;
 		GetComponent<BoxCollider2D> ().transform.position = new Vector2 (GetComponent<BoxCollider2D> ().transform.position.x, stackTop.y);

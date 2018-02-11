@@ -6,41 +6,52 @@ public class ChefScript : MonoBehaviour {
 	public float chefSpeed;
 	public Transform[] ingredients = new Transform[6];
 	public Stack stack;
+
+    private Animator myAnim;
 	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+	{
+	    myAnim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		InputHandler ();
-	}
+    }
 
 	void InputHandler () {
 		if (Input.GetKey (KeyCode.A)) {
 			if (!Input.GetKey (KeyCode.D)) {
 				//GetComponent<Rigidbody2D> ().AddForce (new Vector2 (-chefSpeed, 0));
 				GetComponent<Rigidbody2D> ().velocity = new Vector2 (-chefSpeed, 0);
+                myAnim.SetBool("Moving", true);
+			    transform.rotation = Quaternion.Euler(0, -180, 0);
 			} else {
 				GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, 0);
-			}
+			    myAnim.SetBool("Moving", false);
+            }
 		}
 		if (Input.GetKey (KeyCode.D)) {
 			if (!Input.GetKey (KeyCode.A)) {
 				//GetComponent<Rigidbody2D> ().AddForce (new Vector2 (chefSpeed, 0));
 				GetComponent<Rigidbody2D> ().velocity = new Vector2 (chefSpeed, 0);
-			} else {
+			    myAnim.SetBool("Moving", true);
+			    transform.rotation = Quaternion.Euler(0, 0, 0);
+            } else {
 				GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, 0);
+			    myAnim.SetBool("Moving", false);
 			}
 		}
 		if (Input.GetKeyUp (KeyCode.A)) {
 			//GetComponent<Rigidbody2D> ().AddForce (new Vector2 (-chefSpeed, 0));
 			GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, 0);
-		}
+		    myAnim.SetBool("Moving", false);
+        }
 		if (Input.GetKeyUp (KeyCode.D)) {
 			//GetComponent<Rigidbody2D> ().AddForce (new Vector2 (chefSpeed, 0));
 			GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, 0);
-		}
+		    myAnim.SetBool("Moving", false);
+        }
 	}
 
 	/*void OnCollisionEnter2D (Collision2D coll) {
