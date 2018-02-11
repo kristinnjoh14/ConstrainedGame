@@ -65,6 +65,8 @@ public class ChefScript : MonoBehaviour {
 			return 3;
 		case "Tomato":
 			return 4;
+		case "Rotten":
+			return 5;
 		default:
 			return -1;
 		}

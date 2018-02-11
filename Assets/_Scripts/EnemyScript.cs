@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyScript : MonoBehaviour {
 
@@ -8,15 +9,24 @@ public class EnemyScript : MonoBehaviour {
 	public float throwRate;
 	public float enemySpeed;
 	public IngredientSpawner ingredientSpawner;
+	public Text countdownText;
 
 	// Use this for initialization
 	void Start () {
-		
+		throwCountdown = throwRate;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		throwCountdown -= Time.deltaTime;
+		countdownText.text = "Countdown " + throwCountdown.ToString ();
+		if (throwCountdown > 0) {
+			throwCountdown -= Time.deltaTime;
+		}
+
+		if (throwCountdown < 0) {
+			throwCountdown = 0;
+		}
+
 		InputHandler ();
 	}
 
@@ -43,7 +53,7 @@ public class EnemyScript : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown (KeyCode.K)) {
-			if (throwCountdown < 0) {
+			if (throwCountdown == 0) {
 				Instantiate (ingredientSpawner.ingredients[ingredientSpawner.ingredients.Length-1], new Vector2 (transform.position.x, transform.position.y-1), Quaternion.identity);
 				throwCountdown += throwRate;
 			}
