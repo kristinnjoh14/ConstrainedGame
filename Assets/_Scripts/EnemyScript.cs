@@ -18,7 +18,7 @@ public class EnemyScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		countdownText.text = "Countdown " + throwCountdown.ToString ();
+		countdownText.text = "Countdown " + throwCountdown.ToString ("f1");
 		if (throwCountdown > 0) {
 			throwCountdown -= Time.deltaTime;
 		}
