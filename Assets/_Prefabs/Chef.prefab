@@ -538,6 +538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  scoreTwo: 0
 --- !u!114 &114337062112495822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -558,6 +559,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   stack: {fileID: 114967279439107132}
+  ingredientSpawner: {fileID: 0}
+  throwRate: 0
 --- !u!114 &114967279439107132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -579,6 +582,9 @@ MonoBehaviour:
   stack: []
   stackTop: {x: 0, y: 0}
   stackStiffness: 0.8
+  scoreText: {fileID: 0}
+  playerOneScore: {fileID: 0}
+  playerTwoScore: {fileID: 0}
   ingredientHeight: 0.2
 --- !u!212 &212063762283488620
 SpriteRenderer:
@@ -1141,7 +1147,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0

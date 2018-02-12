@@ -5,22 +5,30 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    
-    public Text timerText;
-    private float startTime;
 
-	// Use this for initialization
-	void Start ()
-	{
-	    startTime = 60.0f;
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	        float t = startTime - Time.time;
-	        // string minutes = ((int) t / 60).ToString();
-	        string seconds = (t % 60).ToString("f1");
-            timerText.text = seconds;
-	}
+    public Text timerText;
+    public float startTime;
+    public float t;
+    private float countdown;
+
+    // Use this for initialization
+    void Start()
+    {
+        t = startTime;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (t > 0)
+        {
+            t -= Time.deltaTime;
+        }
+        else if (t < 0)
+        {
+            t = startTime;
+        }
+        timerText.text = t.ToString("f1");
+
+    }
 }
