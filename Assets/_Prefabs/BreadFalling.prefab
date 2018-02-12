@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212529063001343230}
   - component: {fileID: 50172972992209240}
   - component: {fileID: 61360334665748640}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BreadFalling
   m_TagString: Ingredient
   m_Icon: {fileID: 0}

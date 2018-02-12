@@ -25,7 +25,7 @@ public class ChefScript : MonoBehaviour {
 				//GetComponent<Rigidbody2D> ().AddForce (new Vector2 (-chefSpeed, 0));
 				GetComponent<Rigidbody2D> ().velocity = new Vector2 (-chefSpeed, 0);
                 myAnim.SetBool("Moving", true);
-			    transform.rotation = Quaternion.Euler(0, -180, 0);
+			    //transform.rotation = Quaternion.Euler(0, -180, 0);
 			} else {
 				GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, 0);
 			    myAnim.SetBool("Moving", false);
@@ -36,7 +36,7 @@ public class ChefScript : MonoBehaviour {
 				//GetComponent<Rigidbody2D> ().AddForce (new Vector2 (chefSpeed, 0));
 				GetComponent<Rigidbody2D> ().velocity = new Vector2 (chefSpeed, 0);
 			    myAnim.SetBool("Moving", true);
-			    transform.rotation = Quaternion.Euler(0, 0, 0);
+			   // transform.rotation = Quaternion.Euler(0, 0, 0);
             } else {
 				GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, 0);
 			    myAnim.SetBool("Moving", false);
@@ -76,6 +76,8 @@ public class ChefScript : MonoBehaviour {
 			return 3;
 		case "Tomato":
 			return 4;
+		case "Rotten":
+			return 5;
 		default:
 			return -1;
 		}

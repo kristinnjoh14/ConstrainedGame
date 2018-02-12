@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212511908034200664}
   - component: {fileID: 50020643537266740}
   - component: {fileID: 61571285812488276}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LettuceFalling
   m_TagString: Ingredient
   m_Icon: {fileID: 0}

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212108010628120214}
   - component: {fileID: 50802983275420192}
   - component: {fileID: 61815881754617606}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fried EggFalling
   m_TagString: Ingredient
   m_Icon: {fileID: 0}

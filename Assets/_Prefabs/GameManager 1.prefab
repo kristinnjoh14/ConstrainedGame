@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4159352261820592}
   - component: {fileID: 114621248776833172}
   m_Layer: 0
-  m_Name: GameManager 1
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,4 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18cdb931ebfc70043baa2049ddeaf4f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 0}
+  timerText: {fileID: 114911531572835170, guid: 11171711e18bf124d8ec088b6e147ee6,
+    type: 2}

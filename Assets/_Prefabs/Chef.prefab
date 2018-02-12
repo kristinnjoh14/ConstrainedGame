@@ -148,11 +148,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4563971661323020}
   - component: {fileID: 212961761255930018}
-  - component: {fileID: 114345929030854934}
-  - component: {fileID: 114818971978499638}
   m_Layer: 0
   m_Name: ChefsPlate
-  m_TagString: Untagged
+  m_TagString: Plate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -217,7 +215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4249190591981824}
   - component: {fileID: 114967279439107132}
-  - component: {fileID: 61399273842903228}
+  - component: {fileID: 61032818133479720}
   m_Layer: 0
   m_Name: Stack
   m_TagString: Untagged
@@ -456,7 +454,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
---- !u!61 &61399273842903228
+--- !u!61 &61032818133479720
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -468,7 +466,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00010709185, y: -0.0005467506}
+  m_Offset: {x: 0.000071791, y: -0.00077193044}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -479,7 +477,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.010150513, y: 0.0495037}
+  m_Size: {x: 0.010218557, y: 0.05067235}
   m_EdgeRadius: 0
 --- !u!95 &95980787858287190
 Animator:
@@ -521,7 +519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa2358b7526d64fe1ab30b7a7a4129a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chefSpeed: 20
+  chefSpeed: 10
   ingredients:
   - {fileID: 0}
   - {fileID: 0}
@@ -530,38 +528,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   stack: {fileID: 114967279439107132}
---- !u!114 &114345929030854934
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1709241666999006}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa2358b7526d64fe1ab30b7a7a4129a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chefSpeed: 20
-  ingredients:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  stack: {fileID: 114967279439107132}
---- !u!114 &114818971978499638
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1709241666999006}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcdc3b5304cc9894c881268151cfdc7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 0
 --- !u!114 &114967279439107132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -581,6 +547,7 @@ MonoBehaviour:
   - {fileID: 4534728308774776, guid: c45e2045e94d045c7842fa7fc3ecb0be, type: 2}
   stack: []
   stackTop: {x: 0, y: 0}
+  stackStiffness: 0.99
   ingredientHeight: 0.2
 --- !u!212 &212085840140457194
 SpriteRenderer:

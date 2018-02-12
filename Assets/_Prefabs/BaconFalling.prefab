@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212475848038254358}
   - component: {fileID: 50045576519403860}
   - component: {fileID: 61257363560890764}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BaconFalling
   m_TagString: Ingredient
   m_Icon: {fileID: 0}
