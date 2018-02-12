@@ -28,17 +28,26 @@ public class Stack : MonoBehaviour {
 		if (stack.Count > 0) {
 			//if (Mathf.Abs (GetComponentInParent<Rigidbody2D> ().transform.position.x - stack [0].transform.position.x) > 0.2) {
 			Vector2 chef = GetComponentInParent<Rigidbody2D> ().transform.position;
-			Debug.Log (chef);
-			Vector3 temp = stack [0].transform.position;
-			float x = Mathf.Lerp (temp.x, chef.x, stackStiffness);
-			Vector3 v = new Vector3 (x, temp.y);
+			//Debug.Log (chef);
+			//Vector3 temp = stack [0].transform.position;
+			//float x = Mathf.LerpUnclamped (temp.x, chef.x, stackStiffness);
+			Vector3 v = new Vector3 (chef.x, stack[0].transform.position.y);
 			stack [0].transform.position = v;
 			//}
-			for (int i = stack.Count - 1; i > 0; i--) {
+			/*for (int i = stack.Count - 1; i > 0; i--) {
 				//if (Mathf.Abs (stack[i].transform.position.x - item.transform.position.x) > 0.2) {
 				Vector2 tmp1 = stack[i].transform.position;
 				Vector3 temp1 = stack[i-1].transform.position;
-				float x1 = Mathf.Lerp (tmp1.x, temp1.x, stackStiffness);
+				float x1 = Mathf.LerpUnclamped (tmp1.x, temp1.x, stackStiffness);
+				Vector3 v2 = new Vector3 (x1, tmp1.y);
+				stack[i].transform.position = v2;
+				//}
+			}*/
+			for (int i = 1; i < stack.Count; i++) {
+				//if (Mathf.Abs (stack[i].transform.position.x - item.transform.position.x) > 0.2) {
+				Vector2 tmp1 = stack[i].transform.position;
+				Vector3 temp1 = stack[i-1].transform.position;
+				float x1 = Mathf.LerpUnclamped (tmp1.x, temp1.x, stackStiffness);
 				Vector3 v2 = new Vector3 (x1, tmp1.y);
 				stack[i].transform.position = v2;
 				//}
