@@ -17,7 +17,7 @@ public class EnemyScript : MonoBehaviour
     void Start()
     {
         manager = FindObjectOfType<GameManager>();
-        throwCountdown = throwRate;
+        throwCountdown = 0;
     }
 
     // Update is called once per frame
