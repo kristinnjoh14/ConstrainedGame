@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Chef
+  m_Name: EvilChef
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Moving
@@ -95,7 +95,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 91e46d3d7550038469c48f1e0e44b7e9, type: 2}
+  m_Motion: {fileID: 7400000, guid: 8e0099da8d005884b81f11cfc2a7f1a5, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -121,7 +121,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1c0c1893cc1d27c4a9d8196d77cafefa, type: 2}
+  m_Motion: {fileID: 7400000, guid: fab23dd4c57e449419a4836b17f55738, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
