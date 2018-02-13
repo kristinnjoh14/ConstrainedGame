@@ -76,19 +76,31 @@ public class Stack : MonoBehaviour
                     if (numberOfMeat > 0)
                     {
                         float scoreToGive = -1000.0f * (stack.Count / 10.0f);
-                        myScoreManager.addToScore(scoreToGive);          
+                        myScoreManager.addToScore(scoreToGive);
+                        SoundBase.Instance.PlaySound(SoundBase.Instance.eww);
                     }
                     else
                     {
                         float scoreToGive = 1000.0f * (stack.Count / 10.0f);
                         myScoreManager.addToScore(scoreToGive);
+                        SoundBase.Instance.PlaySound(SoundBase.Instance.nom);
                     }
 
                 }
                 else if (myGM.round == 2)
                 {
-                    float scoreToGive = 1000.0f * (stack.Count / 10.0f);
-                    myScoreManager.addToScoreTwo(scoreToGive);
+                    if (numberOfMeat > 0)
+                    {
+                        float scoreToGive = -1000.0f * (stack.Count / 10.0f);
+                        myScoreManager.addToScoreTwo(scoreToGive);
+                        SoundBase.Instance.PlaySound(SoundBase.Instance.eww);
+                    }
+                    else
+                    {
+                        float scoreToGive = 1000.0f * (stack.Count / 10.0f);
+                        myScoreManager.addToScoreTwo(scoreToGive);
+                        SoundBase.Instance.PlaySound(SoundBase.Instance.nom);
+                    }
                 }
             }
             stack.Clear();
@@ -100,6 +112,7 @@ public class Stack : MonoBehaviour
         stack.Add(newbie.gameObject);
         stackTop = newbie.position;
         GetComponent<BoxCollider2D>().transform.position = new Vector2(GetComponent<BoxCollider2D>().transform.position.x, stackTop.y);
+        SoundBase.Instance.PlaySound(SoundBase.Instance.ingSplat);
     }
 
     void OnCollisionEnter2D(Collision2D coll)
@@ -116,7 +129,8 @@ public class Stack : MonoBehaviour
     {
         if (coll.gameObject.CompareTag("Trash") && stack.Count > 1)
         {
-			if (myGM.round == 1) {
+            SoundBase.Instance.PlaySound(SoundBase.Instance.trash);
+            if (myGM.round == 1) {
 				float scoreToGive = 500.0f * (stack.Count / 10.0f);
 				myScoreManager.addToScoreTwo (scoreToGive);
 				foreach (GameObject item in stack) {
