@@ -86,12 +86,19 @@ public class Stack : MonoBehaviour
         GetComponent<BoxCollider2D>().transform.position = new Vector2(GetComponent<BoxCollider2D>().transform.position.x, stackTop.y);
         if (type == 5)
         {
-            foreach (GameObject item in stack)
-            {
+			if (myGM.round == 1) {
 				float scoreToGive = 500.0f * (stack.Count / 10.0f);
-				myScoreManager.addToScoreTwo(scoreToGive);
-                Destroy(item);
-            }
+				myScoreManager.addToScoreTwo (scoreToGive);
+				foreach (GameObject item in stack) {
+					Destroy (item);
+				}
+			} else {
+				float scoreToGive = 500.0f * (stack.Count / 10.0f);
+				myScoreManager.addToScore (scoreToGive);
+				foreach (GameObject item in stack) {
+					Destroy (item);
+				}
+			}
             stack.Clear();
             stackTop = (Vector2)transform.parent.position;
             Transform botBread = Instantiate(ingredients[1], stackTop + new Vector2(0, ingredientHeight), Quaternion.identity);
