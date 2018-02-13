@@ -79,18 +79,6 @@ public class Stack : MonoBehaviour
             stack.Clear();
             stackTop = (Vector2)transform.parent.position;
         }
-		if (type == 5)
-		{
-			foreach (GameObject item in stack) {
-				Destroy (item);
-			}
-			stack.Clear();
-			stackTop = (Vector2)transform.parent.position;
-			Transform botBread = Instantiate(ingredients[1], stackTop + new Vector2(0, ingredientHeight), Quaternion.identity);
-			stack.Add(botBread.gameObject);
-			stackTop = botBread.position;
-			return;
-		}
         Transform newbie = Instantiate(ingredients[type], stackTop + new Vector2(0, ingredientHeight), Quaternion.identity);
         newbie.GetComponent<SpriteRenderer>().sortingOrder = stack.Count;
         stack.Add(newbie.gameObject);
@@ -105,6 +93,31 @@ public class Stack : MonoBehaviour
             int ingredientType = ChefScript.findIngredientType(coll.gameObject.name);
             Destroy(coll.gameObject);
             addToStack(ingredientType);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.gameObject.CompareTag("Trash") && stack.Count > 1)
+        {
+			if (myGM.round == 1) {
+				float scoreToGive = 500.0f * (stack.Count / 10.0f);
+				myScoreManager.addToScoreTwo (scoreToGive);
+				foreach (GameObject item in stack) {
+					Destroy (item);
+				}
+			} else {
+				float scoreToGive = 500.0f * (stack.Count / 10.0f);
+				myScoreManager.addToScore (scoreToGive);
+				foreach (GameObject item in stack) {
+					Destroy (item);
+				}
+			}
+            stack.Clear();
+            stackTop = (Vector2)transform.parent.position;
+            Transform botBread = Instantiate(ingredients[1], stackTop + new Vector2(0, ingredientHeight), Quaternion.identity);
+            stack.Add(botBread.gameObject);
+            stackTop = botBread.position;
         }
     }
 }
