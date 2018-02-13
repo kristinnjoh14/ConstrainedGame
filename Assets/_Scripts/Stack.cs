@@ -35,6 +35,7 @@ public class Stack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		Debug.Log (stack.Count);
         if (stack.Count > 0)
         {
 
