@@ -77,15 +77,12 @@ public class Stack : MonoBehaviour
                     {
                         float scoreToGive = -1000.0f * (stack.Count / 10.0f);
                         myScoreManager.addToScore(scoreToGive);
-                        SoundBase.Instance.PlaySound(SoundBase.Instance.eww);
                     }
                     else
                     {
                         float scoreToGive = 1000.0f * (stack.Count / 10.0f);
                         myScoreManager.addToScore(scoreToGive);
-                        SoundBase.Instance.PlaySound(SoundBase.Instance.nom);
                     }
-
                 }
                 else if (myGM.round == 2)
                 {
@@ -93,15 +90,21 @@ public class Stack : MonoBehaviour
                     {
                         float scoreToGive = -1000.0f * (stack.Count / 10.0f);
                         myScoreManager.addToScoreTwo(scoreToGive);
-                        SoundBase.Instance.PlaySound(SoundBase.Instance.eww);
                     }
                     else
                     {
                         float scoreToGive = 1000.0f * (stack.Count / 10.0f);
                         myScoreManager.addToScoreTwo(scoreToGive);
-                        SoundBase.Instance.PlaySound(SoundBase.Instance.nom);
                     }
                 }
+            }
+            if (numberOfMeat > 0 && stack.Count > 1)
+            {
+                SoundBase.Instance.PlaySound(SoundBase.Instance.eww);
+            }
+            else if (numberOfMeat == 0 && stack.Count > 1)
+            {
+                SoundBase.Instance.PlaySound(SoundBase.Instance.nom);
             }
             stack.Clear();
             numberOfMeat = 0;
