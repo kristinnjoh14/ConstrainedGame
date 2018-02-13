@@ -13,13 +13,10 @@ public class MenuStack : MonoBehaviour
 
 	public float ingredientHeight;
 	//References
-	private ScoreManager myScoreManager;
 
 	// Use this for initialization
 	void Start()
 	{
-		myScoreManager = GetComponentInParent<ScoreManager>();
-
 		stackTop = GetComponent<BoxCollider2D>().transform.position;
 		stack.Add(Instantiate(ingredients[1], stackTop + new Vector2(0, ingredientHeight), Quaternion.identity).gameObject);
 		stackTop = (Vector2)stack[0].transform.position;
