@@ -100,10 +100,19 @@ public class Stack : MonoBehaviour
     {
         if (coll.gameObject.CompareTag("Trash"))
         {
-            foreach (GameObject item in stack)
-            {
-                Destroy(item);
-            }
+			if (myGM.round == 1) {
+				float scoreToGive = 500.0f * (stack.Count / 10.0f);
+				myScoreManager.addToScoreTwo (scoreToGive);
+				foreach (GameObject item in stack) {
+					Destroy (item);
+				}
+			} else {
+				float scoreToGive = 500.0f * (stack.Count / 10.0f);
+				myScoreManager.addToScore (scoreToGive);
+				foreach (GameObject item in stack) {
+					Destroy (item);
+				}
+			}
             stack.Clear();
             stackTop = (Vector2)transform.parent.position;
             Transform botBread = Instantiate(ingredients[1], stackTop + new Vector2(0, ingredientHeight), Quaternion.identity);

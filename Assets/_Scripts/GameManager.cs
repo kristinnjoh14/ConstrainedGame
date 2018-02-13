@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,6 +32,10 @@ public class GameManager : MonoBehaviour
         {
             roundSwitchPromter = "Switching sides, press SPACE to continue";
             roundSwitch.text = roundSwitchPromter;
+			var fallingStuff = GameObject.FindGameObjectsWithTag ("Ingredient");
+			foreach (GameObject item in fallingStuff) {
+				Destroy (item);
+			}
             paused = true;
         }
         if (paused && round != 2)
@@ -56,13 +61,17 @@ public class GameManager : MonoBehaviour
         }
         else if (paused && round == 2)
         {
+			
             Time.timeScale = 0;
-            roundSwitchPromter = "ESCAPE to quit";
+            roundSwitchPromter = "ESCAPE to quit\nSpace or R to restart";
             roundSwitch.text = roundSwitchPromter;
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 Application.Quit();
-            }
+			} else if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown (KeyCode.R)) {
+				SceneManager.LoadScene ("KiddiScene");
+				Time.timeScale = 1;
+			}
 
         }
     }
