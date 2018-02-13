@@ -84,7 +84,21 @@ public class Stack : MonoBehaviour
         stack.Add(newbie.gameObject);
         stackTop = newbie.position;
         GetComponent<BoxCollider2D>().transform.position = new Vector2(GetComponent<BoxCollider2D>().transform.position.x, stackTop.y);
-        if (type == 5)
+    }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.CompareTag("Ingredient"))
+        {
+            int ingredientType = ChefScript.findIngredientType(coll.gameObject.name);
+            Destroy(coll.gameObject);
+            addToStack(ingredientType);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.gameObject.CompareTag("Trash"))
         {
             foreach (GameObject item in stack)
             {
@@ -95,16 +109,6 @@ public class Stack : MonoBehaviour
             Transform botBread = Instantiate(ingredients[1], stackTop + new Vector2(0, ingredientHeight), Quaternion.identity);
             stack.Add(botBread.gameObject);
             stackTop = botBread.position;
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D coll)
-    {
-        if (coll.gameObject.CompareTag("Ingredient"))
-        {
-            int ingredientType = ChefScript.findIngredientType(coll.gameObject.name);
-            Destroy(coll.gameObject);
-            addToStack(ingredientType);
         }
     }
 }

@@ -25,10 +25,20 @@ public class ScoreManager : MonoBehaviour
         Debug.Log("SELIR");
         score += scoreToAdd;
         Debug.Log("Score x" + scoreToAdd);
+
+        if (score < 0)
+        {
+            score = 0;
+        }
     }
 
     public void addToScoreTwo(float scoreToAdd)
     {
         scoreTwo += scoreToAdd;
+
+        if (scoreTwo < 0)
+        {
+            scoreTwo = 0;
+        }
     }
 }
