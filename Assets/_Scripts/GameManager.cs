@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
                 Application.Quit();
 			}*/ 
 			if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown (KeyCode.R)) {
+				Time.timeScale = 1;
 				SceneManager.LoadScene ("MenuScene");
 			}
 
