@@ -10,28 +10,38 @@ public class EnemyScript : MonoBehaviour
     public float throwRate;
     public float enemySpeed;
     public IngredientSpawner ingredientSpawner;
-    public Text countdownText;
     private GameManager manager;
+
+    private GameObject meat;
+
+    //private Animator anim;
 
     // Use this for initialization
     void Start()
     {
         manager = FindObjectOfType<GameManager>();
+        throwCountdown = 0;
         throwCountdown = throwRate;
+        meat = GameObject.Find("Meat");
+        //anim = GetComponentInChildren<Animator>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        countdownText.text = "Countdown " + throwCountdown.ToString("f1");
+        //countdownText.text = "Countdown " + throwCountdown.ToString("f1");
         if (throwCountdown > 0)
         {
             throwCountdown -= Time.deltaTime;
+            //anim.SetBool("Loading", true);
         }
 
         if (throwCountdown < 0)
         {
             throwCountdown = 0;
+            meat.gameObject.SetActive(true);
+            //anim.SetBool("Loading", false);
         }
 
         InputHandler();
@@ -80,6 +90,7 @@ public class EnemyScript : MonoBehaviour
                 if (throwCountdown == 0)
                 {
                     Instantiate(ingredientSpawner.ingredients[ingredientSpawner.ingredients.Length - 1], new Vector2(transform.position.x, transform.position.y - 1), Quaternion.identity);
+                    meat.gameObject.SetActive(false);
                     throwCountdown += throwRate;
                 }
             }
