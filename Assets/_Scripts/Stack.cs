@@ -14,6 +14,8 @@ public class Stack : MonoBehaviour
     public Text playerTwoScore;
 
     public float ingredientHeight;
+
+    private int numberOfMeat;
     //References
     private GameManager myGM;
     private ScoreManager myScoreManager;
@@ -58,6 +60,12 @@ public class Stack : MonoBehaviour
 
     public void addToStack(int type)
     {
+
+        if (type == 5)
+        {
+            numberOfMeat++;
+        }
+
         if (type == 1)
         {
             foreach (GameObject item in stack)
@@ -65,10 +73,17 @@ public class Stack : MonoBehaviour
                 Destroy(item);
                 if (myGM.round == 1)
                 {
-                    Debug.Log("Wirkar " + stack.Count);
-                    float scoreToGive = 1000.0f * (stack.Count / 10.0f);
-                    Debug.Log("Alvöru score" + scoreToGive);
-                    myScoreManager.addToScore(scoreToGive);
+                    if (numberOfMeat > 0)
+                    {
+                        float scoreToGive = -1000.0f * (stack.Count / 10.0f);
+                        myScoreManager.addToScore(scoreToGive);          
+                    }
+                    else
+                    {
+                        float scoreToGive = 1000.0f * (stack.Count / 10.0f);
+                        myScoreManager.addToScore(scoreToGive);
+                    }
+
                 }
                 else if (myGM.round == 2)
                 {
@@ -77,6 +92,7 @@ public class Stack : MonoBehaviour
                 }
             }
             stack.Clear();
+            numberOfMeat = 0;
             stackTop = (Vector2)transform.parent.position;
         }
         Transform newbie = Instantiate(ingredients[type], stackTop + new Vector2(0, ingredientHeight), Quaternion.identity);
@@ -114,6 +130,7 @@ public class Stack : MonoBehaviour
 				}
 			}
             stack.Clear();
+            numberOfMeat = 0;
             stackTop = (Vector2)transform.parent.position;
             Transform botBread = Instantiate(ingredients[1], stackTop + new Vector2(0, ingredientHeight), Quaternion.identity);
             stack.Add(botBread.gameObject);
