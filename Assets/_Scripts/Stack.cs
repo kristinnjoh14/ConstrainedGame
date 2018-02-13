@@ -88,6 +88,8 @@ public class Stack : MonoBehaviour
         {
             foreach (GameObject item in stack)
             {
+				float scoreToGive = 500.0f * (stack.Count / 10.0f);
+				myScoreManager.addToScoreTwo(scoreToGive);
                 Destroy(item);
             }
             stack.Clear();
