@@ -11,6 +11,9 @@ public class MenuManager : MonoBehaviour {
 			Debug.Log ("Virkar");
 			SceneManager.LoadScene ("MainScene");
 		}
+		if (Input.GetKeyDown (KeyCode.R)) {
+			SceneManager.LoadScene ("MainScene");
+		}
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			Application.Quit ();
 		}
