@@ -102,7 +102,7 @@ public class Stack : MonoBehaviour
             {
                 SoundBase.Instance.PlaySound(SoundBase.Instance.eww);
             }
-            else if (numberOfMeat == 0 && stack.Count > 1)
+            else if (numberOfMeat == 0 && stack.Count > 0)
             {
                 SoundBase.Instance.PlaySound(SoundBase.Instance.nom);
             }
