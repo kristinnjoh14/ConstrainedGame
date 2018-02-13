@@ -8,8 +8,6 @@ public class MenuChefTwo : MonoBehaviour
 	public Transform[] ingredients = new Transform[6];
 	public MenuStack stack;
 
-
-	private GameManager manager;
 	public IngredientSpawner ingredientSpawner;
 
 	private Animator myAnim;
@@ -18,8 +16,6 @@ public class MenuChefTwo : MonoBehaviour
 	void Start()
 	{
 		myAnim = GetComponent<Animator>();
-		manager = FindObjectOfType<GameManager>();
-
 	}
 
 	// Update is called once per frame
