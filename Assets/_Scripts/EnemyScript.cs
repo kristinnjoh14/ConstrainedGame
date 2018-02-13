@@ -141,4 +141,15 @@ public class EnemyScript : MonoBehaviour
             }
         }
     }
+
+	public void SwitchBodies() {
+		foreach (Transform child in transform) {
+			if (child.CompareTag ("VisualEvil")) {
+				child.gameObject.SetActive (false);
+			}
+			if (child.CompareTag ("VisualChef")) {
+				child.gameObject.SetActive (true);
+			}
+		}
+	}
 }

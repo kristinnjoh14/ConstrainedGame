@@ -176,6 +176,19 @@ public class ChefScript : MonoBehaviour
         }
     }
 
+	public void SwitchBodies() {
+		foreach (Transform child in transform) {
+			if (child.CompareTag ("VisualEvil")) {
+				Debug.Log("Fer inn í visual evil");
+				child.gameObject.SetActive (true);
+			}
+			if (child.CompareTag ("VisualChef")) {
+				Debug.Log("Fer inn í visual chef");
+				child.gameObject.SetActive (false);
+			}
+		}
+	}
+
     //void addToStack (string ingredientType) {
     //TODO: Implement or rethink
     //GameObject newbie = Instantiate (ingredients[x], new Vector2 ((Random.value*17.2f-8.6f), 5), Quaternion.identity);

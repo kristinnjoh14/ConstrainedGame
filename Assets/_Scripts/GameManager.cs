@@ -12,14 +12,19 @@ public class GameManager : MonoBehaviour
     public Text roundSwitch;
     private string roundSwitchPromter;
     private bool paused;
+	private ChefScript chef;
+	private EnemyScript enemy;
 
     private Stack stack; 
 
     // Use this for initialization
     void Start()
     {
+		Time.timeScale = 1;
         timer = GetComponentInParent<Timer>();
         stack = FindObjectOfType<Stack>();
+		chef = FindObjectOfType<ChefScript> ();
+		enemy = FindObjectOfType<EnemyScript> ();
         round = 1;
         paused = false;
         roundSwitchPromter = "";
@@ -43,6 +48,8 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             if (Input.GetKeyDown(KeyCode.Space))
             {
+				chef.SwitchBodies ();
+				enemy.SwitchBodies ();
                 paused = false;
                 round = 2;
                 roundSwitchPromter = "";
@@ -63,14 +70,15 @@ public class GameManager : MonoBehaviour
         {
 			
             Time.timeScale = 0;
-            roundSwitchPromter = "ESCAPE to quit\nSpace or R to restart";
+
+            roundSwitchPromter = "ESCAPE to quit\nSpace or R to return to main menu";
             roundSwitch.text = roundSwitchPromter;
-            if (Input.GetKeyDown(KeyCode.Escape))
+            /*if (Input.GetKeyDown(KeyCode.Escape))
             {
                 Application.Quit();
-			} else if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown (KeyCode.R)) {
-				SceneManager.LoadScene ("KiddiScene");
-				Time.timeScale = 1;
+			}*/ 
+			if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown (KeyCode.R)) {
+				SceneManager.LoadScene ("MenuScene");
 			}
 
         }
