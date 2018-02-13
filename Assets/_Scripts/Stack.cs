@@ -98,7 +98,7 @@ public class Stack : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.CompareTag("Trash"))
+        if (coll.gameObject.CompareTag("Trash") && stack.Count > 1)
         {
 			if (myGM.round == 1) {
 				float scoreToGive = 500.0f * (stack.Count / 10.0f);
